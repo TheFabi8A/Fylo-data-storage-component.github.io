@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    background-color: var(--very-dark-blue);
+}
+
+sup {
+    font-size: 1em;
+    vertical-align: 0.15em;
+}
+
+sub {
+    font-size: 1em;
+    vertical-align: -0.15em;
+}
+
+:root {
+    /* gradients */
+    --gradient-1: hsl(6deg 100% 80%);
+    --gradient-2: hsl(335deg 100% 65%);
+
+    /* neutral */
+    --pale-blue: hsl(243deg 100% 93%);
+    --grayish-blue: hsl(229deg 7% 55%);
+    --dark-blue: hsl(228deg 56% 26%);
+    --very-dark-blue: hsl(229deg 57% 11%);
+
+    /* range */
+    --width-range: 275px;
+    --height-range: 20px;
+    --radius-range: 30px;
+
+    /* fonts */
+    --font-400: raleway400;
+    --font-700: raleway700;
+}
+
+@font-face {
+    font-family: "Raleway400";
+    src:
+        url("/fonts/Raleway-Regular.woff2") format("woff2")
+        url("/fonts/Raleway-Regular.woff") format("woff")
+        url("/fonts/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway700";
+    src:
+        url("/fonts/Raleway-Bold.woff2") format("woff2")
+        url("/fonts/Raleway-Bold.woff") format("woff")
+        url("/fonts/Raleway-Bold.ttf") format("truetype");
+}
+
+.container-absolute {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 25px;
+    width: 100vw;
+    height: 90vh;
+}
+
+.img-background {
+    position: absolute;
+    z-index: -5;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: 100vh;
+}
+
+.logo {
+    width: 150px;
+}
+
+.container-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon {
+    background-color: var(--very-dark-blue);
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    object-fit: scale-down;
+    border-radius: 10px;
+}
+
+.block-primary {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+    border-radius: 15px 100px 15px 15px;
+}
+
+.block-range {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 25px;
+    border-radius: 15px;
+    font-family: var(--font-400), sans-serif;
+    color: var(--grayish-blue);
+}
+
+.text-use {
+    font-weight: bold;
+    color: var(--pale-blue);
+    font-family: var(--font-400), sans-serif;
+}
+
+[class^="block"] {
+    box-sizing: border-box;
+    width: 350px;
+    background-color: var(--dark-blue);
+    padding: 30px;
+    height: auto;
+}
+
+.container-range {
+    position: relative;
+    background-color: var(--very-dark-blue);
+    display: flex;
+    padding: 0 4px;
+    align-items: center;
+    height: var(--height-range);
+    width: var(--width-range);
+    border-radius: var(--radius-range);
+    margin-bottom: 50px;
+}
+
+.container-left {
+    position: absolute;
+    width: 170px;
+    height: 60px;
+    background-color: var(--pale-blue);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    bottom: -30px;
+}
+
+.text-left {
+    font-size: 16px;
+    font-family: var(--font-400), sans-serif;
+}
+
+.container-left > p {
+    font-size: 2.5em;
+    font-family: var(--font-700), sans-serif;
+    font-weight: 700;
+    color: var(--very-dark-blue);
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 80%;
+    background: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    appearance: none;
+    border-radius: var(--radius-range);
+    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
+    height: calc(var(--height-range) - 8px);
+    padding: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    position: relative;
+    top: -1px;
+    width: calc(var(--height-range) - 10px);
+    height: calc(var(--height-range) - 10px);
+    background: var(--pale-blue);
+    border-radius: 9px;
+    cursor: grab;
+}
+
+input[type="range"]::before {
+    content: "0 GB";
+    color: var(--pale-blue);
+    font-family: var(--font-400), sans-serif;
+    position: absolute;
+    left: -5px;
+    bottom: -25px;
+    font-weight: bold;
+}
+
+input[type="range"]::after {
+    content: "1000 GB";
+    font-family: var(--font-400), sans-serif;
+    color: var(--pale-blue);
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+    font-weight: bold;
+}
+
+@media screen and (min-width: 650px) {
+    .container-absolute {
+        height: 100vh;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-background {
+        height: 50vh;
+        top: auto;
+        bottom: 0;
+    }
+
+    .container-left {
+        bottom: auto;
+        top: -30px;
+        right: 25px;
+    }
+
+    .container-use {
+        align-self: flex-start;
+    }
+
+    .block-range {
+        width: 500px;
+    }
+
+    .container-range {
+        width: 440px;
+    }
+
+    .container-left::after {
+        content: "";
+        position: absolute;
+        background-color: var(--pale-blue);
+        width: 35px;
+        height: 35px;
+        right: 0;
+        bottom: -15px;
+        clip-path: polygon(100% 100%, 0 0, 100% 0);
+    }
+}
