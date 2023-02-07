@@ -1,11 +1,19 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
     background-color: var(--very-dark-blue);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 25px;
+    font-size: 0.875em;
+    min-height: 90vh;
+    background: var(--very-dark-blue) url("images/bg-mobile.png") center / cover no-repeat;
 }
 
 sup {
@@ -30,7 +38,7 @@ sub {
     --very-dark-blue: hsl(229deg 57% 11%);
 
     /* range */
-    --width-range: 275px;
+    --width-range: 17.188em;
     --height-range: 20px;
     --radius-range: 30px;
 
@@ -55,16 +63,6 @@ sub {
         url("fonts/Raleway-Bold.ttf") format("truetype");
 }
 
-.container-absolute {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 25px;
-    width: 100vw;
-    height: 90vh;
-}
-
 .logo {
     width: 150px;
 }
@@ -78,8 +76,8 @@ sub {
 .icon {
     background-color: var(--very-dark-blue);
     padding: 10px;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     object-fit: scale-down;
     border-radius: 10px;
 }
@@ -87,7 +85,7 @@ sub {
 .block-primary {
     display: flex;
     flex-flow: column;
-    gap: 20px;
+    gap: 50px;
     border-radius: 15px 100px 15px 15px;
 }
 
@@ -118,14 +116,28 @@ sub {
 
 .container-range {
     position: relative;
-    background-color: var(--very-dark-blue);
-    display: flex;
-    padding: 0 4px;
+    outline: 1px solid black;
     align-items: center;
-    height: var(--height-range);
+    height: 75px;
     width: var(--width-range);
     border-radius: var(--radius-range);
     margin-bottom: 50px;
+}
+
+.span-left {
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    color: var(--pale-blue);
+    font-family: var(--font-400), sans-serif;
+}
+
+.span-right {
+    position: absolute;
+    right: -15px;
+    bottom: 0;
+    color: var(--pale-blue);
+    font-family: var(--font-400), sans-serif;
 }
 
 .container-left {
@@ -142,7 +154,6 @@ sub {
 }
 
 .text-left {
-    font-size: 16px;
     font-family: var(--font-400), sans-serif;
 }
 
@@ -153,63 +164,36 @@ sub {
     color: var(--very-dark-blue);
 }
 
-input[type="range"] {
+.input-range {
     appearance: none;
-    width: 80%;
     background: none;
+    width: 100%;
 }
 
-input[type="range"]::-webkit-slider-runnable-track {
-    appearance: none;
-    border-radius: var(--radius-range);
-    background: linear-gradient(90deg, var(--gradient-1), var(--gradient-2));
-    height: calc(var(--height-range) - 8px);
+.input-range::-webkit-slider-runnable-track {
+    overflow: hidden;
+    background-color: var(--very-dark-blue);
     padding: 2px;
+    border-radius: 7.5px;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.input-range::-webkit-slider-thumb {
     appearance: none;
     position: relative;
-    top: -1px;
     width: calc(var(--height-range) - 10px);
     height: calc(var(--height-range) - 10px);
-    background: var(--pale-blue);
+    background-color: var(--pale-blue);
+    cursor: pointer;
     border-radius: 9px;
-    cursor: grab;
 }
 
-input[type="range"]::before {
-    content: "0 GB";
-    color: var(--pale-blue);
-    font-family: var(--font-400), sans-serif;
-    position: absolute;
-    left: -5px;
-    bottom: -25px;
-    font-weight: bold;
-}
-
-input[type="range"]::after {
-    content: "1000 GB";
-    font-family: var(--font-400), sans-serif;
-    color: var(--pale-blue);
-    position: absolute;
-    right: 0;
-    bottom: -25px;
-    font-weight: bold;
-}
-
-@media screen and (min-width: 650px) {
-    .container-absolute {
-        height: 100vh;
-        flex-flow: row nowrap;
+@media screen and (min-width: 1366px) {
+    body {
+        min-height: 100vh;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-    }
-
-    .img-background {
-        height: 50vh;
-        top: auto;
-        bottom: 0;
+        background: var(--very-dark-blue) url("images/bg-desktop.png") bottom / 100% 50% no-repeat;
     }
 
     .container-left {
