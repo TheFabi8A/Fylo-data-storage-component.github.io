@@ -60,23 +60,23 @@ sub {
 .container-icons {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1.25em;
 }
 
 .icon {
     background-color: var(--very-dark-blue);
-    padding: 0.625em 10px;
+    padding: 0.625em;
     height: 3.125em;
     width: 3.125em;
     object-fit: scale-down;
-    border-radius: 10px;
+    border-radius: 0.625em;
 }
 
 .block-primary {
     display: flex;
     flex-flow: column;
     gap: 1.875em;
-    border-radius: 15px 100px 15px 15px;
+    border-radius: 1em 6.25em 1em 1em;
 }
 
 .block-range {
@@ -84,8 +84,8 @@ sub {
     display: flex;
     flex-flow: column;
     align-items: center;
-    gap: 25px;
-    border-radius: 15px;
+    gap: 1.562em;
+    border-radius: 1em;
     color: var(--grayish-blue);
     font-family: RalewayRegular, sans-serif;
     font-size: 0.875em;
@@ -105,15 +105,15 @@ sub {
 
 .span-left {
     position: absolute;
-    left: -10px;
-    top: 25px;
+    left: -0.625em;
+    top: 1.562em;
     color: var(--pale-blue);
 }
 
 .span-right {
     position: absolute;
-    right: -15px;
-    top: 25px;
+    right: -1em;
+    top: 1.562em;
     color: var(--pale-blue);
 }
 
@@ -122,12 +122,12 @@ sub {
     width: 11.25em;
     height: 4.688em;
     background-color: var(--pale-blue);
-    border-radius: 10px;
+    border-radius: 0.625em;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    bottom: -30px;
+    gap: 0.625em;
+    bottom: -1.875em;
 }
 
 .container-left > span:first-child {
@@ -153,13 +153,18 @@ sub {
 .input-range {
     appearance: none;
     background: none;
+    padding: 0.25em;
+    background-color: var(--very-dark-blue);
+    border-radius: 1em;
     width: 100%;
 }
 
 .input-range::-webkit-slider-runnable-track {
-    background-color: var(--very-dark-blue);
-    padding: 2px;
-    border-radius: 7.5px;
+    display: block;
+    background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+    overflow: hidden;
+    padding: 0.125em;
+    border-radius: 1em;
 }
 
 .input-range::-webkit-slider-thumb {
@@ -174,32 +179,37 @@ sub {
 
 @media screen and (min-width: 1024px) {
     body {
-        margin: 0;
+        margin: 0 auto;
         min-height: 100vh;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         background: var(--very-dark-blue) url("images/bg-desktop.png") bottom / 100% 50% no-repeat;
+        max-width: 1440px;
     }
 
     .container-left {
         bottom: auto;
-        top: -30px;
-        right: 25px;
+        top: -3.5em;
+        right: 1.563em;
     }
 
     .container-use {
         align-self: flex-start;
     }
 
+    .block-range {
+        width: 34.063em;
+    }
+
     .container-left::after {
         content: "";
         position: absolute;
         background-color: var(--pale-blue);
-        width: 35px;
-        height: 35px;
+        width: 2.188em;
+        height: 2.188em;
         right: 0;
-        bottom: -15px;
+        bottom: -0.938em;
         clip-path: polygon(100% 100%, 0 0, 100% 0);
     }
 }
