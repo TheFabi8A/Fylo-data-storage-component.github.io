@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-content: center;
     gap: 1.563em;
-    margin: 0 25px;
+    margin: 0 1.563em;
     min-height: 100vh;
     background: var(--very-dark-blue) url("images/bg-mobile.png") center / cover no-repeat;
 }
@@ -64,12 +64,17 @@ sub {
 }
 
 .icon {
+    cursor: pointer;
     background-color: var(--very-dark-blue);
     padding: 0.625em;
     height: 3.125em;
     width: 3.125em;
     object-fit: scale-down;
     border-radius: 0.625em;
+}
+
+.icon:hover {
+    transition: all 500ms;
 }
 
 .block-primary {
@@ -124,18 +129,17 @@ sub {
 
 .container-left > span:nth-child(2) {
     font-family: var(--font-400), sans-serif;
-    font-weight: 400;
     color: var(--grayish-blue);
 }
 
 .container-range {
     position: relative;
     width: 100%;
-    padding: 5px;
+    padding: 0.313em;
     font-family: RalewayRegular, sans-serif;
     background-color: var(--very-dark-blue);
     border-radius: 1em;
-    margin-bottom: 50px;
+    margin-bottom: 3.125em;
     display: flex;
     align-items: center;
 }
@@ -201,7 +205,7 @@ sub {
     }
 
     .block-range {
-        width: 34.063em;
+        width: 38em;
     }
 
     .container-left::after {
