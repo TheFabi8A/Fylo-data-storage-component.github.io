@@ -103,20 +103,6 @@ sub {
     height: auto;
 }
 
-.span-left {
-    position: absolute;
-    left: -0.625em;
-    top: 1.562em;
-    color: var(--pale-blue);
-}
-
-.span-right {
-    position: absolute;
-    right: -1em;
-    top: 1.562em;
-    color: var(--pale-blue);
-}
-
 .container-left {
     position: absolute;
     width: 11.25em;
@@ -144,19 +130,34 @@ sub {
 
 .container-range {
     position: relative;
-    align-items: center;
-    height: 4.688em;
     width: 100%;
+    padding: 5px;
     font-family: RalewayRegular, sans-serif;
+    background-color: var(--very-dark-blue);
+    border-radius: 1em;
+    margin-bottom: 50px;
+}
+
+.container-range::before {
+    content: "0 GB";
+    position: absolute;
+    left: -0.625em;
+    top: 2.5em;
+    color: var(--pale-blue);
+}
+
+.container-range::after {
+    top: 2.5em;
+    right: -1em;
+    content: "1000 GB";
+    position: absolute;
+    color: var(--pale-blue);
 }
 
 .input-range {
     appearance: none;
     background: none;
-    padding: 0.25em;
-    background-color: var(--very-dark-blue);
-    border-radius: 1em;
-    width: 100%;
+    min-width: 100%;
 }
 
 .input-range::-webkit-slider-runnable-track {
@@ -169,7 +170,6 @@ sub {
 
 .input-range::-webkit-slider-thumb {
     appearance: none;
-    position: relative;
     width: 1em;
     height: 1em;
     background-color: var(--pale-blue);
