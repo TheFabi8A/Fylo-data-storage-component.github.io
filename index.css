@@ -136,6 +136,8 @@ sub {
     background-color: var(--very-dark-blue);
     border-radius: 1em;
     margin-bottom: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .container-range::before {
