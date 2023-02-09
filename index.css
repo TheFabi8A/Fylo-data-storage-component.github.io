@@ -25,6 +25,10 @@ sub {
     vertical-align: -0.05em;
 }
 
+form {
+    width: inherit;
+}
+
 :root {
     /* gradients */
     --gradient-1: hsl(6deg 100% 80%);
