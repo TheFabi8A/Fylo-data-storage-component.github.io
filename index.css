@@ -206,6 +206,11 @@ sub {
 
     .block-range {
         width: 38em;
+        align-self: flex-end;
+    }
+
+    .container-range {
+        margin-bottom: 2.188em;
     }
 
     .container-left::after {
