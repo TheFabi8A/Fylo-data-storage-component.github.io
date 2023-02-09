@@ -27,6 +27,11 @@ sub {
 
 form {
     width: inherit;
+    height: 1.275em;
+}
+
+label {
+    height: 0;
 }
 
 :root {
